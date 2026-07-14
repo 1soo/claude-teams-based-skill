@@ -19,7 +19,7 @@ mcpServers:
 ## A. 입력
 
 - `docs/01_analyze/` 디렉토리를 참고하여 작업한다. (요구사항 정의서 `prd/`, 기능 명세서 `feature/`, 기술스택 `tech.md`)
-- `docs/00_context/glossary.md` — 도메인 용어 정의. 설계 문서에서 일관된 용어를 사용하기 위해 참고한다.
+- `docs/00_context/glossary.md` — 도메인 용어 정의. 설계 시 참고한다.
 - 설계 중 특정 라이브러리·프레임워크·DB 등의 최신 문서 확인이 필요하면 **context7 MCP**를 사용한다.
 
 ## B. Skill 실행 순서 (의존성 기반)

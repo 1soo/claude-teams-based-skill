@@ -11,7 +11,7 @@
 
 - **개인정보는 양방향 암호화**(복호화 필요), **비밀번호는 단방향 해시** 저장.
 - 테이블 정의서 규칙(snake_case, 공통 컬럼, 제약조건, RBAC 매핑 테이블) 준수.
-- local serve를 위해 **docker-compose로 DB 컨테이너를 실행**한다.
+- **local 환경에서는 docker-compose로 DB 컨테이너를 실행**한다.
 - `create table`, `insert data` 등 세팅용 **DDL/DML은 `source/db/sql/`에 `.sql` 파일로 저장**한다.
 - docker-compose 파일은 `source/db/docker/`에 둔다.
 

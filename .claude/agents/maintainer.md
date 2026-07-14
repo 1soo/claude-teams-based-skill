@@ -26,7 +26,7 @@ skills:
 `dev-lead`로부터 **유지보수 개발 완료** 알림과 도메인별 수정 내역, KST 타임스탬프(`yyyyMMdd-HHmmss`)를 전달받으면 `maintenance` skill(`references/history-report`)로 처리한다.
 
 1. 도메인별 수정 내역을 도메인·요구사항·해결 방법 위주로 정리한다.
-2. `docs/06_maintenance/{yyyyMMdd-HHmmss}/{domain}/report.md`에 template 그대로 저장한다. (문장마다 줄바꿈) **`{yyyyMMdd-HHmmss}`는 `dev-lead`가 전달한 타임스탬프를 그대로 사용한다 — 당신은 `Bash`가 없어 실제 시각을 조회할 수 없으므로 절대 임의로 생성·추측하지 않는다.**
+2. `docs/06_maintenance/{yyyyMMdd-HHmmss}/{domain}/report.md`에 template 그대로 저장한다. (문장마다 줄바꿈) **`{yyyyMMdd-HHmmss}`는 `dev-lead`가 전달한 타임스탬프를 그대로 사용한다. 임의로 생성·추측하지 않는다.**
 3. 작성 완료 후 `docs/06_maintenance/CLAUDE.md` 인덱스에 해당 유지보수 내용을 간결하고 직관성 높게 한 줄로 추가한다.
 
 ## C. 프로세스 상 위치

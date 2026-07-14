@@ -10,7 +10,7 @@
 
 ## 1. 인증 (Auth)
 
-- Supabase Auth(GoTrue) 사용 시 비밀번호 해시는 Supabase가 내부 처리한다 → 위 Database 개발 컨벤션의 "비밀번호 단방향 해시" 규칙은 Supabase가 자동 충족하므로 별도 구현 불필요.
+- Supabase Auth(GoTrue) 사용 시 비밀번호 해시는 Supabase가 내부 처리한다. 위 Database 개발 컨벤션의 "비밀번호 단방향 해시" 규칙은 별도로 구현하지 않는다.
 - 커스텀 사용자 속성(닉네임, 권한 등)은 도메인 테이블(예: `public.users`)에 저장하고 `auth.users.id`를 FK로 참조한다.
 - RBAC 매핑 테이블(`user_role`, `screen_role`, `screen`)은 system-design 산출물 그대로 유지하되, `user_role.user_id`가 `auth.users.id`를 참조하도록 연결한다.
 - `docs/02_plan/security/authentication.md`가 Supabase Auth를 전제로 작성된 경우 자체 JWT 발급/JTI 세션 관리 대신 Supabase Auth의 세션·토큰 관리를 따른다. 문서가 자체 JWT 발급을 전제로 한다면 `dev-lead`에게 확인 후 진행한다.
