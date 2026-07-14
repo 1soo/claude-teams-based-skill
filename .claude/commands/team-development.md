@@ -30,10 +30,10 @@ disable-model-invocation: true
 | `analyzer` | `analyzer` | 요구사항 분석 담당. 단계별로 생각할 것. 모호하거나 결정이 필요한 부분은 Main에게 직접 질문할 것. |
 | `designer` | `designer` | 설계 담당. 단계별로 생각할 것. 모호하거나 결정이 필요한 부분은 `analyzer`에게 SendMessage로 질문할 것. |
 | `dev-lead` | `dev-lead` | 개발 조율 담당(코드 미구현). 단계별로 생각할 것. 결정하지 못하는 설계 이슈는 `designer`에게 질문할 것. |
-| `dev-ui` | `developer` | 역할: UI. `ui-ux-development` skill만 사용. 단계별로 생각할 것. |
-| `dev-frontend` | `developer` | 역할: FE. `react-development` 또는 `next-development` skill만 사용(확정 스택에 맞춰). 단계별로 생각할 것. |
-| `dev-backend` | `developer` | 역할: BE. `spring-boot-development` skill만 사용. 단계별로 생각할 것. |
-| `dev-database` | `developer` | 역할: DB. `database-development` skill만 사용. 단계별로 생각할 것. |
+| `dev-ui` | `developer` | 역할: UI. `implementation` skill의 `references/ui-ux`만 사용. 단계별로 생각할 것. |
+| `dev-frontend` | `developer` | 역할: FE. `implementation` skill의 `references/react` 또는 `references/next`만 사용(확정 스택에 맞춰). 단계별로 생각할 것. |
+| `dev-backend` | `developer` | 역할: BE. `implementation` skill의 `references/spring-boot`(또는 SSR Next인 경우 `references/next`)만 사용. 단계별로 생각할 것. |
+| `dev-database` | `developer` | 역할: DB. `implementation` skill의 `references/database`(Supabase 지정 시 `references/database/supabase` 포함)만 사용. 단계별로 생각할 것. |
 | `tester` | `tester` | 도메인별 통합 테스트 담당. 단계별로 생각할 것. |
 
 > SSR Next 풀스택으로 확정되어 `dev-backend`가 불필요해지면, `dev-lead`가 이를 확인한 뒤 Main에게 SendMessage로 알리고, Main이 해당 teammate를 정리한다. 그 외의 경우 위 8개 전원을 그대로 유지한다.

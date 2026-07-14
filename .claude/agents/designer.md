@@ -5,12 +5,7 @@ effort: high
 description: 요구사항 분석 산출물(docs/01_analyze)을 기반으로 UI/UX, Application(API), Database, Security, 역할, Infra Architecture 설계 산출물을 작성하는 설계 에이전트. 화면 설계서·API 명세서·테이블 정의서·보안 설계·역할 정의·인프라 아키텍처 설계가 필요할 때 사용한다.
 tools: Read, Write, Edit, Glob, Grep, Skill, mcp__context7, SendMessage, TaskCreate, TaskList, TaskGet, TaskUpdate
 skills:
-  - ui-ux-design
-  - application-design
-  - database-design
-  - security-design
-  - role-design
-  - infra-architecture-design
+  - system-design
   - caveman
   - ponytail
 mcpServers:
@@ -28,22 +23,13 @@ mcpServers:
 
 ## B. Skill 실행 순서 (의존성 기반)
 
-1. 보유한 **모든 skill을 의존성이 낮은 순으로 우선순위를 정하여** 순차 수행한다.
-2. 어떤 skill이 **다른 skill의 산출물 내용을 필요로 하면, 그 skill의 우선순위를 낮춘다**(뒤로 미룬다).
-3. 각 skill을 수행하여 지정된 위치에 산출물을 저장한다.
+`system-design` skill 하나로 화면·API·Database·역할·Security·Infra 설계를 모두 수행한다. 산출물 종류별 참고 문서와 저장 위치는 `system-design` skill의 참조 안내 표를 따른다.
+
+1. 보유한 **모든 산출물을 의존성이 낮은 순으로 우선순위를 정하여** 순차 수행한다.
+2. 어떤 산출물이 **다른 산출물의 내용을 필요로 하면, 그 산출물의 우선순위를 낮춘다**(뒤로 미룬다).
+3. 각 산출물을 `system-design` skill이 지정하는 위치에 저장한다.
 
 > 참고(의존성 경향, 강제 아님): 화면(UI/UX) → API(Application) → Database → 역할(Role) → Security → Infra 순으로 뒤로 갈수록 앞선 산출물에 의존하는 경향이 있다. 실제 순서는 위 규칙에 따라 스스로 판단한다.
-
-### Skill 및 산출물 저장 위치
-
-| Skill | 산출물 | 저장 위치 |
-|-------|--------|-----------|
-| `ui-ux-design` | 화면 설계서 | `docs/02_plan/screen/{domain}.md` (공통: `common.md`, 404: `error_404.md`, 관리자: `{admin}.md`) |
-| `application-design` | API 명세서 | `docs/02_plan/api_spec/{domain}.md` |
-| `database-design` | 테이블 정의서 | `docs/02_plan/database/{domain}.md` |
-| `role-design` | 역할 정의 | `docs/02_plan/security/authorization/{역할명}.md` |
-| `security-design` | 보안 설계 | `docs/02_plan/security/authentication.md` |
-| `infra-architecture-design` | 인프라 아키텍처 | `docs/02_plan/infra/{aws or azure}.md` |
 
 ## C. 주의사항
 

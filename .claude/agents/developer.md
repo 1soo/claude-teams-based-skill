@@ -4,6 +4,10 @@ model: sonnet  # Sonnet 5. 사용 불가 시 opus로 대체
 effort: high
 description: 설계 산출물(docs/02_plan)과 기술스택(docs/01_analyze/tech.md)을 기반으로 UI/UX, React, Next, Spring Boot, Database를 구현하는 개발 에이전트. 실제 코드 구현·빌드 테스트·E2E 테스트가 필요할 때 사용한다.
 tools: Read, Write, Edit, Glob, Grep, Skill, Bash, mcp__playwright, mcp__shadcn, SendMessage, TaskCreate, TaskList, TaskGet, TaskUpdate
+skills:
+  - implementation
+  - caveman
+  - ponytail
 mcpServers:
   - playwright
   - shadcn
@@ -20,17 +24,21 @@ mcpServers:
 
 ## B. Skill 선택 및 실행
 
-기술스택(`tech.md`)에 맞는 skill만 선택하여 `Skill` 툴로 호출한다. (예: Frontend가 React면 `react-development`, Next면 `next-development`)
+`implementation` skill 하나를 사용한다. 담당 역할과 기술스택(`tech.md`)에 맞는 참고 문서만 선택해 읽는다. (예: CSR에서 Frontend가 React면 `references/react`, Next면 `references/next`. SSR에서 Next가 지정되면 Next가 서버 역할까지 수행하므로 서버 로직 구현에도 `references/next`를 참고)
 
 구현 계획 수립 시 `ponytail` skill(`/ponytail lite` 또는 `/ponytail full`)로 실제 필요한 코드만 작성하고 기존 컴포넌트·모듈 재사용을 우선한다.
 
-| Skill | 사용 시점 | 개발 후 검증 |
-|-------|-----------|--------------|
-| `ui-ux-development` | 모든 화면 개발의 공통 기반(디자인 시스템·공통 컴포넌트) | — |
-| `react-development` | Frontend가 React(CSR)인 경우 | 빌드 테스트 + playwright E2E |
-| `next-development` | Frontend가 Next인 경우 | 빌드 테스트 + playwright E2E |
-| `spring-boot-development` | Backend가 Spring/Spring Boot인 경우 | 빌드 테스트 + JUnit + playwright E2E |
-| `database-development` | 모든 경우(DB 구성) | DB MCP 또는 test code |
+**`references/next`는 Frontend 역할로 고정되지 않는다.** CSR에서 Next가 Frontend로 지정된 경우 순수 클라이언트 Frontend로 사용하고, SSR에서 Next가 지정된 경우 Route Handler·Server Action으로 API·비즈니스 로직·DB 연동까지 구현하는 서버 역할로 사용한다.
+
+| 역할 | 사용 시점 | 참고 문서(`implementation` skill 하위) |
+|------|-----------|-----------------------------------------|
+| UI | 모든 화면 개발의 공통 기반(디자인 시스템·공통 컴포넌트) | `references/ui-ux` |
+| FE | Frontend가 React(CSR)인 경우 | `references/react` |
+| FE 또는 BE | Next가 지정된 경우 (CSR: Frontend 역할 / SSR: 서버 역할) | `references/next` |
+| BE | Backend가 Spring/Spring Boot인 경우 | `references/spring-boot` |
+| DB | 모든 경우(DB 구성), Supabase 지정 시 추가로 | `references/database`, `references/database/supabase` |
+
+각 참고 문서의 "개발 후 검증"/"검증" 절을 그대로 따른다(빌드 테스트, JUnit, playwright E2E, DB MCP 또는 test code 등).
 
 ## C. 디렉토리 구조
 
