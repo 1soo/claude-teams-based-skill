@@ -8,6 +8,7 @@
 
 ## 핵심 규칙
 
+- **핵심 로직(hooks, utils, slice reducer 등)은 test-first로 작성**한다: 실패하는 테스트를 먼저 작성해 확인하고(Red) → 통과하는 최소 구현을 작성하고(Green) → 통과 유지한 채 구조를 정리한다(Refactor). 테스트 러너는 프로젝트에 구성된 도구(Jest/Vitest 등)를 사용한다.
 - **전역 state는 Redux(Redux Toolkit)** 사용.
 - **모든 API 요청은 공통 `apiClient`** 통해 수행한다. (직접 fetch/axios 호출 금지)
 - UI 구현은 [references/ui-ux/conventions.md](../ui-ux/conventions.md)의 디자인 시스템을 따른다.

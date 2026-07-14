@@ -40,7 +40,7 @@ skills:
 ## D. 주의사항
 
 - 단계별로 생각한다.
-- 요구사항·전달받은 수정 내역에 없는 내용은 추측·확장하지 않는다.
+- 요구사항·전달받은 수정 내역에 명시된 범위 내에서만 다룬다.
 - 다른 teammate와 `SendMessage`로 소통할 때는 `caveman` skill(`/caveman lite` 또는 `/caveman full`)로 핵심만 전달한다.
 - 이력 조회는 인덱스(`docs/06_maintenance/CLAUDE.md`) 기반으로 범위를 좁혀 최소 토큰으로 수행한다. (전수 조사 금지)
 - **컨텍스트 사용량이 80%에 도달하면 `/compact`를 수행하고, `/compact` 후에도 사용량이 50% 이상이면 `/clear`를 수행한다.**

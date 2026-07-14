@@ -10,10 +10,11 @@ API 명세서·테이블 정의서·인증/인가 설계 기반 Backend 구현.
 
 - **DDD(Domain Driven Design)**로 계층을 구성한다. (domain / application / infrastructure / presentation)
 - **SOLID 원칙**을 준수한다.
+- **핵심 도메인 로직·예외 처리는 test-first로 작성**한다: 실패하는 JUnit 테스트를 먼저 작성해 확인하고(Red) → 통과하는 최소 구현을 작성하고(Green) → 통과 유지한 채 구조를 정리한다(Refactor).
 - **모든 예외에 대해 JUnit 테스트를 필수 작성**한다.
 - **공통 예외처리 모듈**을 둔다. (`@RestControllerAdvice` + 표준 에러 응답)
 - **Spring Security로 인증·인가**를 구현한다. (인증/인가 설계 준수)
-- **DB 접근 방식(JPA/MyBatis 등)은 설계자가 결정한 테이블 정의서(`docs/02_plan/database`)를 따른다.** 임의 선택 금지.
+- **DB 접근 방식(JPA/MyBatis 등)은 설계자가 결정한 테이블 정의서(`docs/02_plan/database`)를 따른다.**
 - **Swagger-UI(OpenAPI) 문서**를 작성한다. `springdoc-openapi`(springdoc-openapi-starter-webmvc-ui) 추가, 모든 API에 어노테이션(`@Tag`, `@Operation`, `@ApiResponse`, `@Schema`)으로 요청/응답·에러 코드를 명세한다. (API 명세서 `docs/02_plan` 기준)
 - Backend는 `source/backend/` 디렉토리에서 개발하고, 자체 `.env`를 둔다.
 
