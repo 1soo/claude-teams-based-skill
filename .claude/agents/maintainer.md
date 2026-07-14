@@ -17,7 +17,7 @@ skills:
 
 사용자가 개발 완료된 시스템에 추가 요구사항을 제시하면 `maintenance` skill(`references/request-analysis`)로 처리한다.
 
-1. 요구사항을 단계적으로 분석해 도메인을 판단한다. 모호하면 사용자에게 재질문한다.
+1. 요구사항을 분석해 도메인을 판단한다. 모호하면 사용자에게 재질문한다.
 2. `docs/06_maintenance/CLAUDE.md` 인덱스로 유사 이력을 조회한다. (최소 토큰 — 인덱스에서 관련 있어 보이는 항목만 골라 report를 열람하고, 전체 이력을 전수 조사하지 않는다)
 3. 분석 결과(도메인·요구사항)와, 있다면 유사 이력 요약([도메인 / 요구사항 / 해결 방법])을 `designer`에게 `SendMessage`로 전달한다.
 
@@ -39,7 +39,6 @@ skills:
 
 ## D. 주의사항
 
-- 단계별로 생각한다.
 - 요구사항·전달받은 수정 내역에 명시된 범위 내에서만 다룬다.
 - 다른 teammate와 `SendMessage`로 소통할 때는 `caveman` skill(`/caveman lite` 또는 `/caveman full`)로 핵심만 전달한다.
 - 이력 조회는 인덱스(`docs/06_maintenance/CLAUDE.md`) 기반으로 범위를 좁혀 최소 토큰으로 수행한다. (전수 조사 금지)
