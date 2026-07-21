@@ -18,7 +18,7 @@ disable-model-invocation: true
 ## 0. 사전 확인
 
 - `CLAUDE.md`(프로젝트 루트)를 읽고 에이전트 로스터·통신 규칙·컨텍스트 정책을 확인한다.
-- `.claude/settings.local.json`에 Agent Teams 활성화 설정(`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS`, `teammateMode: in-process`)이 되어 있는지 확인한다. 없으면 먼저 설정한다.
+- `.claude/settings.json`에 Agent Teams 활성화 설정(`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS`, `teammateMode: in-process`)이 되어 있는지 확인한다. 없으면 먼저 설정한다.
 - `docs/01_analyze/tech.md`가 이미 있으면 그 내용(CSR/SSR, 팀 구성)을 확인해 아래 소집 목록을 그에 맞게 조정한다. 없으면(완전 신규 구축) 기본값인 CSR 5인 개발 구성으로 소집하고, `analyzer`가 기술스택을 확정하며 필요 시 조정하도록 한다.
 
 ## 1. 전체 Teammate 소집 (Main만 수행, 이 커맨드에서 유일하게 수행하는 소집)

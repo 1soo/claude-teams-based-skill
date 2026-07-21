@@ -5,7 +5,7 @@ Main(팀 Lead = 나)이 모든 에이전트를 소집하고 각 단계를 조율
 
 ## 사전 조건 (Agent Teams 활성화)
 
-Agent Teams는 실험적 기능이라 `.claude/settings.json`(또는 `settings.local.json`)에서 활성화한다.
+Agent Teams는 실험적 기능이라 `.claude/settings.json`에서 활성화한다(이 저장소에는 이미 커밋되어 있음).
 
 ```json
 {

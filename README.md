@@ -4,7 +4,7 @@
 
 ## 1. 개요
 
-- **Agent Teams**: `.claude/settings.local.json`에서 `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS`를 활성화하고, 각 역할을 이름이 지정된 Teammate로 소집한다.
+- **Agent Teams**: `.claude/settings.json`에서 `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS`를 활성화하고, 각 역할을 이름이 지정된 Teammate로 소집한다.
 - **소집 주체**: teammate는 하위 teammate를 만들 수 없다. 필요한 에이전트는 **Main이 전부 소집**하며, 소집 이후에는 에이전트 간 직접 통신(`SendMessage`)으로 조율한다. Main은 최초 킥오프와, 에이전트 간 소통으로도 해결되지 않는 에스컬레이션에만 개입한다.
 - **컨텍스트 유지**: 모든 에이전트는 삭제·재소집 없이 동일 인스턴스로 유지된다. 분석·설계·개발 조율 에이전트는 프로젝트 전체 기간 컨텍스트를 유지하고, 개발/테스트 에이전트는 도메인이 바뀔 때 컨텍스트를 정리(`/compact`, 필요 시 `/clear`)한 뒤 다음 도메인을 이어서 진행한다.
 - **파일 소유 분리**: 같은 파일을 동시에 수정하지 않도록 영역별(UI/FE/BE/DB)로 디렉토리를 분리해 작업한다. 모든 소스코드는 `source/` 하위에 저장한다.
