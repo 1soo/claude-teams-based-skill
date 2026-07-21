@@ -23,6 +23,8 @@ Agent Teams는 실험적 기능이라 `.claude/settings.json`에서 활성화한
 | [caveman](https://github.com/JuliusBrussee/caveman)    | CLAUDE.md 생성 및 teammate 간 `SendMessage` 소통 시 핵심만 간결히 압축 | `/caveman lite` 또는 `/caveman full`   | 모든 Agent                                       |
 | [ponytail](https://github.com/DietrichGebert/ponytail) | 계획 수립 시 꼭 필요한 것만 작업, 기존 컴포넌트·모듈 재사용 우선       | `/ponytail lite` 또는 `/ponytail full` | `designer`, `dev-lead`, `developer`(UI/FE/BE/DB) |
 
+**caveman 적용 조건**: 설계 결과 요약, 오류 원인 분석, 도메인 전달 계획처럼 원문이 장황해지기 쉬운 메시지에만 `caveman`을 적용한다. "완료했습니다", "TC-3 실패, 나머지 통과"처럼 이미 한두 문장으로 충분히 짧은 완료/실패 보고는 압축 없이 그대로 전달한다(스킬 호출 자체의 비용이 절약분보다 커질 수 있음).
+
 ## 팀 구성 (Roster)
 
 모든 에이전트는 **`model: sonnet`(Sonnet 5) + `effort: high`**로 동작한다(Sonnet 5 불가 시 `model: opus` + `effort: high`로 대체). **소집(spawn)은 Main만 가능**, 에이전트끼리는 `SendMessage`와 공유 task list로 협업한다(중첩 불가, flat peer).
@@ -58,8 +60,8 @@ Agent Teams는 실험적 기능이라 `.claude/settings.json`에서 활성화한
 도메인 용어(엔티티명·상태값·약어 등)를 정의하는 `docs/00_context/glossary.md`를 둔다.
 
 - **갱신**: `analyzer`가 요구사항 분석 중 새 용어를 정의하고, `designer`가 설계 중 용어를 구체화·추가한다.
-- **참조**: 모든 에이전트가 작업 시작 시 참조한다. `dev-lead`는 도메인 전달 메시지에 이 파일 위치를 함께 명시한다.
-- **형식**: `- **용어**: 정의 (관련 도메인)` 목록. 간결하게 유지하고 정의가 바뀌면 그 자리에서 갱신한다(이력 남기지 않음).
+- **형식**: 도메인별 섹션(`## {domain}`)으로 나누어 그 아래 `- **용어**: 정의` 목록을 둔다. 여러 도메인에 걸친 공통 용어는 `## 공통` 섹션에 모은다. 간결하게 유지하고 정의가 바뀌면 그 자리에서 갱신한다(이력 남기지 않음).
+- **참조(전수 조사 금지)**: 작업 시작 시 전체를 처음부터 정독하지 않는다. 먼저 섹션 제목만 훑어 **현재 작업 도메인 섹션 + `## 공통` 섹션만** 골라 읽고, 다른 도메인 용어가 실제로 필요할 때만 그 섹션을 선택적으로 연다. `dev-lead`는 도메인 전달 메시지에 이 파일 위치와 **참고할 섹션명**을 함께 명시한다.
 
 ## 워크플로우
 

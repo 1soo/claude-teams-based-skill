@@ -19,7 +19,7 @@ mcpServers:
 ## A. 입력
 
 - `docs/01_analyze/` 디렉토리를 참고하여 작업한다. (요구사항 정의서 `prd/`, 기능 명세서 `feature/`, 기술스택 `tech.md`)
-- `docs/00_context/glossary.md` — 도메인 용어 정의. 설계 시 참고한다.
+- `docs/00_context/glossary.md` — 도메인 용어 정의. 설계 시 **해당 도메인 섹션 + `## 공통` 섹션만** 참고한다(전체 정독 금지).
 - 설계 중 특정 라이브러리·프레임워크·DB 등의 최신 문서 확인이 필요하면 **context7 MCP**를 사용한다.
 
 ## B. Skill 실행 순서 (의존성 기반)
@@ -36,5 +36,5 @@ mcpServers:
 ## C. 주의사항
 
 - `docs/01_analyze` 디렉토리에 명시된 내용만 생성한다. 모호하거나 결정이 필요한 부분은 **`analyzer`에게 `SendMessage`로 질문**한 뒤 진행한다(해결 안 되면 `analyzer`가 Main에게 에스컬레이션).
-- 설계 계획 수립 시 `ponytail` skill(`/ponytail lite` 또는 `/ponytail full`)로 실제 필요한 설계만 진행하고 기존 컴포넌트·모듈 재사용을 우선한다. 다른 teammate와 `SendMessage`로 소통 시 `caveman` skill(`/caveman lite` 또는 `/caveman full`)로 간결하게 전달한다.
-- **컨텍스트 사용량이 80%에 도달하면 `/compact`를 수행하고, `/compact` 후에도 사용량이 50% 이상이면 `/clear`를 수행한다.**
+- 설계 계획 수립 시 `ponytail` skill(`/ponytail lite` 또는 `/ponytail full`)로 실제 필요한 설계만 진행하고 기존 컴포넌트·모듈 재사용을 우선한다.
+- 팀 소통(`caveman`)·컨텍스트 정리(`/compact`, `/clear`) 정책은 root `CLAUDE.md`를 따른다.

@@ -36,7 +36,7 @@ mcpServers:
    - **기술스택**: Frontend / Backend / Database / 도커(Docker) 사용 여부 / 배포 환경(local, AWS, Azure). Backend/Database 확인 시 **Supabase**(Next.js + Supabase는 현업에서 널리 쓰이는 아키텍처)도 선택지로 안내한다.
    - **기술스택별 사용 버전**: Frontend/Backend/Database 등 각 기술스택의 사용 버전은 **context7 MCP**로 확인한 **LTS 중 최신 버전**을 기본값으로 제시하고, 사용자에게 확인받는다(LTS 개념이 없는 기술은 최신 안정 버전을 기본값으로 한다).
    - 확인이 끝나면 정리하여 `docs/01_analyze/tech.md`에 저장한다.
-2. **분석**: 요구사항을 도메인별로 분석하여 논리적 도메인 경계를 스스로 도출한다. 도메인 구분이 모호하면 임의로 나누지 말고 사용자에게 질문한다. 참조 웹페이지가 주어지면 **playwright MCP**로 열어 내용을 확인한다. 기존 도메인의 추가 분석이면 `docs/00_context/glossary.md`를 먼저 확인해 이미 정의된 용어와 일관되게 서술한다.
+2. **분석**: 요구사항을 도메인별로 분석하여 논리적 도메인 경계를 스스로 도출한다. 도메인 구분이 모호하면 임의로 나누지 말고 사용자에게 질문한다. 참조 웹페이지가 주어지면 **playwright MCP**로 열어 내용을 확인한다. 기존 도메인의 추가 분석이면 `docs/00_context/glossary.md`에서 **해당 도메인 섹션 + `## 공통` 섹션만** 확인해(전체 정독 금지) 이미 정의된 용어와 일관되게 서술한다.
 3. **작성**: 분석 후 `requirements-analysis` skill로 도메인별 산출물을 작성한다. 산출물 종류(요구사항 정의서/기능 명세서)에 따라 skill의 참조 안내 표(`references/requirements-definition/`, `references/feature-specification/`)를 따른다.
 4. **저장**: 프로젝트 root 기준 아래 폴더를 만들고 도메인별 파일을 저장한다.
    - 요구사항 정의서: `docs/01_analyze/prd/{domain}.md`
@@ -47,5 +47,4 @@ mcpServers:
 
 - 분석 → 작성 → 저장 순서를 지키고, 각 단계를 명확히 구분한다.
 - **요구사항에 명시된 내용만 생성한다.** 모호하거나 정보가 부족하면 반드시 사용자에게 질문한 뒤 진행한다.
-- 다른 teammate와 `SendMessage`로 소통 시 `caveman` skill(`/caveman lite` 또는 `/caveman full`)로 핵심만 전달한다.
-- **컨텍스트 사용량이 80%에 도달하면 `/compact`를 수행하고, `/compact` 후에도 사용량이 50% 이상이면 `/clear`를 수행한다.**
+- 팀 소통(`caveman`)·컨텍스트 정리(`/compact`, `/clear`) 정책은 root `CLAUDE.md`를 따른다.
